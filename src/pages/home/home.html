@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <div class="bar bar-header bar-assertive">
+      <header-page></header-page>
+      <ion-title>Search Hall</ion-title>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+        <ion-label color="primary" fixed>Area Name : </ion-label>
+        <ion-input  type="text" [(ngModel)]="areaName" id="areaName" name="areaName"></ion-input>
+       
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" fixed>Date : </ion-label>
+        <!-- <ion-input type="date" placeholder="ddd/mm/yyyy" (input)="setDate($event, date)"></ion-input> -->
+        <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <button ion-button secondary (click)="searchHalls()">
+      search hall
+      </button>
+    </ion-item>
+  </ion-list>
+  
+  <ion-list>
+    <ion-list>    <!--(click)="itemTapped($event, hall)"-->
+        <ion-item *ngFor="let hall of hallResult" >
+            <!-- <ion-avatar item-left>                
+            </ion-avatar> -->
+            <div [style.background-image]="hall.image" class="my-tab-icon">
+              <div class="testAlign">
+                <div><h2>{{hall.name}}</h2></div>
+                <div><h4 class="item-description">{{hall.area}}</h4></div>
+                <div><h6 class="item-description">Ratting - {{hall.rating}}</h6></div>
+              </div>
+            </div>            
+        </ion-item>
+
+    </ion-list>
+  </ion-list>
+
+</ion-content>
