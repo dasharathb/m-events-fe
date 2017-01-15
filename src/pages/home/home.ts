@@ -3,19 +3,21 @@ import { NavController, Platform } from 'ionic-angular';
 import { HomeService } from '../../services/HomeService';
 import {DomSanitizer} from '@angular/platform-browser';
 import { Geolocation } from 'ionic-native';
-//import { Header } from '../header/header';
+import { HallPage } from '../hall-dtls/hall';
 
 declare var google;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [HomeService]
+  providers: [HomeService],
 })
 export class HomePage {
+  title : String = 'Search Halls';
 	areaName: String = 'area name...';
  	hallResult:[any];
  	myDate: String = new Date().toISOString();
+  //hallDtls: any = HallPage;
 
   constructor(public navCtrl: NavController, public homeService: HomeService, private sanitizer: DomSanitizer, public platform: Platform, public zone: NgZone) {
   	this.platform = platform;
@@ -128,4 +130,8 @@ export class HomePage {
     });
   }  
 
+  hallDtls(event, id){
+    console.log('id ::::::::::: ',id);
+    this.navCtrl.push(HallPage,{id: id});
+  }
 }

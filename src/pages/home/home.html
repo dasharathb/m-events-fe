@@ -1,9 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <div class="bar bar-header bar-assertive">
-      <header-page></header-page>
-      <ion-title>Search Hall</ion-title>
-    </div>
+  <ion-navbar>    
+      <header-page [title]="title"></header-page>     
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -30,7 +27,7 @@
         <ion-item *ngFor="let hall of hallResult" >
             <!-- <ion-avatar item-left>                
             </ion-avatar> -->
-            <div [style.background-image]="hall.image" class="my-tab-icon">
+            <div [style.background-image]="hall.image" (click)="hallDtls($event, hall.id)" class="my-tab-icon">
               <div class="testAlign">
                 <div><h2>{{hall.name}}</h2></div>
                 <div><h4 class="item-description">{{hall.area}}</h4></div>

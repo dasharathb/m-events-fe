@@ -6,6 +6,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Header } from '../pages/header/header';
+import { HallPage } from '../pages/hall-dtls/hall';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Header } from '../pages/header/header';
     ContactPage,
     HomePage,
     TabsPage,
-    Header
+    Header,
+    HallPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +27,8 @@ import { Header } from '../pages/header/header';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    HallPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
