@@ -17,8 +17,8 @@ export class HomePage {
 	areaName: String = 'area name...';
  	hallResult:[any];
  	myDate: String = new Date().toISOString();
-  //hallDtls: any = HallPage;
-
+  userImg: any = './assets/IMG_0560.jpeg';
+//IMG_0560.jpeg
   constructor(public navCtrl: NavController, public homeService: HomeService, private sanitizer: DomSanitizer, public platform: Platform, public zone: NgZone) {
   	this.platform = platform;
   	this.getArea = this.getArea.bind( this )
@@ -130,8 +130,8 @@ export class HomePage {
     });
   }  
 
-  hallDtls(event, id){
-    console.log('id ::::::::::: ',id);
-    this.navCtrl.push(HallPage,{id: id});
+  hallDtls(event, id, name){
+    console.log('id ::::::::::: ',name);
+    this.navCtrl.push(HallPage,{id: id, title:name});
   }
 }

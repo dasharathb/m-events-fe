@@ -8,7 +8,23 @@
     <!-- <div [style.background-image]="hallResult" class="my-tab-icon">
       
     </div>  -->
-    <img [src]="img" >           
+    
+    <ion-list>   
+        <ion-item >
+	        <ion-slides #HallSlider [pager]="showPager" [autoplay]="5000" 
+	        [effect]="coverflow" id="Slides" (change)="nextImg()">
+			  <ion-slide *ngFor="let img of img">
+			    <img [src]="img" >
+			  </ion-slide>
+			  <!-- <ion-slide>
+			    <img [src]="img" >
+			  </ion-slide> -->
+			  <ion-slide>
+			    <h1>Slide 3</h1>
+			  </ion-slide>
+			</ion-slides>             
+        </ion-item>
+    </ion-list>         
         
 
 </ion-content>

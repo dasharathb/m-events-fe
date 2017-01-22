@@ -1,10 +1,38 @@
 <ion-header>
   <ion-navbar>    
-      <header-page [title]="title"></header-page>     
+      <!-- <header-page [title]="title"></header-page> -->        
+    <ion-row id="header_1">
+      <!-- <ion-col width-5> -->
+        <ion-item class="item-avatar">
+          <ion-avatar item-left>
+              <img [src]="userImg">
+          </ion-avatar>
+        <!-- </ion-item> -->
+      <!-- </ion-col>
+      <ion-col width-80> -->
+        <!-- <ion-item> -->
+          <ion-input  type="text" [(ngModel)]="areaName" id="areaName" name="areaName"></ion-input>
+          <ion-icon  item-right name="search" (click)="searchHalls()" >
+          </ion-icon>
+        </ion-item>
+      <!-- </ion-col> -->
+      <!-- <ion-col width-25>
+        <ion-item>
+          <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>  
+      </ion-col> -->
+      <!-- <ion-col width-10> -->
+        <!-- <ion-item>
+          <ion-icon name="search" (click)="searchHalls()" >
+          </ion-icon>
+        </ion-item> -->
+      <!-- </ion-col> -->
+    </ion-row>
+        
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-list>
+  <!-- <ion-list>
     <ion-item>
         <ion-label color="primary" fixed>Area Name : </ion-label>
         <ion-input  type="text" [(ngModel)]="areaName" id="areaName" name="areaName"></ion-input>
@@ -12,7 +40,7 @@
     </ion-item>
     <ion-item>
         <ion-label color="primary" fixed>Date : </ion-label>
-        <!-- <ion-input type="date" placeholder="ddd/mm/yyyy" (input)="setDate($event, date)"></ion-input> -->
+        <ion-input type="date" placeholder="ddd/mm/yyyy" (input)="setDate($event, date)"></ion-input>
         <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
     <ion-item>
@@ -20,14 +48,14 @@
       search hall
       </button>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
   
-  <ion-list>
+  
     <ion-list>    <!--(click)="itemTapped($event, hall)"-->
         <ion-item *ngFor="let hall of hallResult" >
             <!-- <ion-avatar item-left>                
             </ion-avatar> -->
-            <div [style.background-image]="hall.image" (click)="hallDtls($event, hall.id)" class="my-tab-icon">
+            <div [style.background-image]="hall.image" (click)="hallDtls($event, hall.id, hall.name)" class="my-tab-icon">
               <div class="testAlign">
                 <div><h2>{{hall.name}}</h2></div>
                 <div><h4 class="item-description">{{hall.area}}</h4></div>
@@ -37,6 +65,6 @@
         </ion-item>
 
     </ion-list>
-  </ion-list>
+  
 
 </ion-content>
